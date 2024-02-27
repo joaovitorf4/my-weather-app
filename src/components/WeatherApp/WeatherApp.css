@@ -1,0 +1,214 @@
+.mobile-dimen {
+    background-color: rgb(49, 49, 49);
+    display: flex;
+    flex-direction: column;
+}
+
+.search-field {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    animation: fadeIn 1.5s;
+}
+
+.weather-location {
+    animation: fadeIn 1.5s;
+}
+
+.main-app {
+    background-color: rgba(165, 165, 165, 0.5);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 1.5s;
+}
+
+.extra-info {
+    background-color: rgba(165, 165, 165, 0.5);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    animation: fadeIn 1.5s;
+}
+
+.days-change {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    animation: fadeIn 1.5s;
+}
+
+.day {
+    background-color: rgba(165, 165, 165, 0.5);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.button-search {
+    border: 0;
+    border-radius: 50%;
+    min-height: 100%;
+    min-width: 45px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.info {
+    width: 83px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 6px;
+}
+  
+.day img {
+    width: 35px;
+}
+
+
+.main-app h1 {
+    outline: none;
+    font-size: 60px;
+    font-family: 'Euclid';
+}
+
+.info img {
+    width: 20px;
+}
+
+.info p {
+    font-size: 14px;
+    color: white;
+    font-family: 'Euclid2';
+}
+
+.day p {
+    color: white;
+    font-family: 'Euclid2';
+    font-size: 14px;
+    margin-bottom: -4px;
+}
+
+input {
+    border: 2px solid rgba(0, 0, 0, 0);
+    outline: none;
+    border: 0;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: white;
+    color: #626262;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Euclid2';
+    color: black;
+    outline:  none;
+}
+
+h1 {
+    font-family: 'Euclid';
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+}
+
+@media (max-width: 912px), screen and (orientation: landscape) {
+    .mobile-dimen {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    input {
+        width: 40vw;
+        height: 50%;
+    }
+
+    h1 {
+        font-size: 3.5em;
+    }
+
+    .search-field {
+        max-width: 90vw;
+        min-height: 3vh;
+        margin-top: 2em;
+    }
+
+    .main-app {
+        width: 80vw;
+        height: 34vh;
+    }
+
+    .main-app img {
+        width: 10em;
+    }
+
+    .extra-info {
+        width: 80vw;
+        height: 12vh;
+    }
+
+    .day {
+        width: 18vw;
+        height: 12vh;
+    }
+}
+
+@media not (max-width: 912px), screen and (orientation: landscape) {
+    .mobile-dimen {
+        width: 290px;
+        height: 600px;
+        border-radius: 10px;
+    }
+
+    input {
+        max-width: 200px;
+    }
+
+    h1 {
+        font-size: 3vw;
+    }
+
+    .search-field {
+        margin-top: 16px;
+    }
+
+    .main-app {
+        width: 250px;
+        height: 200px;
+    }
+
+    .main-app img {
+        width: 120px;
+    }
+
+    .extra-info {
+        width: 250px;
+        height: 100px;
+    }
+
+    .day {
+        width: 50px;
+        height: 100px;
+    }
+
+}
+
+@font-face {
+    font-family: Euclid;
+    src: url(../assets/fonts/Euclid\ Circular\ A\ Bold.ttf);
+}
+
+@font-face {
+    font-family: Euclid2;
+    src: url(../assets/fonts/Euclid\ Circular\ A\ Regular.ttf);
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
