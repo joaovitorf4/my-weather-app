@@ -10,38 +10,42 @@ import snow_icon from '../assets/imgs/snow.png';
 import wind_icon from '../assets/imgs/wind.png';
 import './WeatherApp.css';
 
-function WeatherApp() {
+function daysForward(day){
+  const toDay = 1000 * 60 * 60 * 24;
+
   let today = new Date();
-  let tomorrow = today.getTime() + 1000 * 60 * 60 * 24;
-  let date = new Date(tomorrow);
-  let tomorrow2 = date.getTime() + 1000 * 60 * 60 * 24;
-  let date2 = new Date(tomorrow2);
-  let tomorrow3 = date2.getTime() + 1000 * 60 * 60 * 24;
-  let date3 = new Date(tomorrow3);
-  
+  let tomorrow = today.getTime() + toDay;
+  const date = new Date(tomorrow);
+  let tomorrow2 = date.getTime() + toDay;
+  const date2 = new Date(tomorrow2);
+  let tomorrow3 = date2.getTime() + toDay;
+  const date3 = new Date(tomorrow3);
+
   const day1 = date.getMonth() + 1 + '/' + date.getDate()
   const day2 = date2.getMonth() + 1 + '/' + date2.getDate()
   const day3 = date3.getMonth() + 1 + '/' + date3.getDate()
 
+  return  day === 'day1' ? day1 : day === 'day2' ? day2 : day === 'day3' ? day3 : null;
+}
+
+function WeatherApp() {
+
+  const api_key = '8272a952bb70515534a7ccc74caf1046';
+  const [wicon, setWicon] = useState(cloud_icon);
+  const [wicon2, setWicon2] = useState(cloud_icon);
+  const [wicon3, setWicon3] = useState(cloud_icon);
+  const [wicon4, setWicon4] = useState(cloud_icon);
+
   useEffect(() => {
     document.addEventListener('keydown', detectKeyDown, true)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, )
 
   const detectKeyDown = (e) => {
     if (e.key === 'Enter') {
       search();
     }
   }
-
-  let api_key = '8272a952bb70515534a7ccc74caf1046';
-  const [wicon, setWicon] = useState(cloud_icon);
-  const [wicon2, setWicon2] = useState(cloud_icon);
-  const [wicon3, setWicon3] = useState(cloud_icon);
-  const [wicon4, setWicon4] = useState(cloud_icon);
-
   
-
   const search = async () => {
     const element = document.getElementsByClassName("cityInput");
     if ( element[0].value === '' ){
@@ -66,100 +70,112 @@ function WeatherApp() {
     temperature[0].innerHTML = Math.floor(data.list[0].main.temp) + '°C';
     location[0].innerHTML = data.city.name;
 
-    switch ( data.list[0].weather[0].icon ) {
-      case arrayIconsD[0] || arrayIconsN[0]:
-        setWicon(clear_icon);
-        break;
-      case arrayIconsD[1] || arrayIconsN[1]:
-        setWicon(cloud_icon);
-        break;
-      case arrayIconsD[2] || arrayIconsN[2]:
-        setWicon(drizzle_icon);
-        break;
-      case arrayIconsD[3] || arrayIconsN[3]:
-        setWicon(drizzle_icon);
-        break;
-      case arrayIconsD[4] || arrayIconsN[4]:
-        setWicon(rain_icon);
-        break;
-      case arrayIconsD[5] || arrayIconsN[5]:
-        setWicon(snow_icon);
-        break;
-      default:
-        setWicon(clear_icon);
-        break;
-    }
-
-    switch ( data.list[8].weather[0].icon ) {
-      case arrayIconsD[0] || arrayIconsN[0]:
-        setWicon2(clear_icon);
-        break;
-      case arrayIconsD[1] || arrayIconsN[1]:
-        setWicon2(cloud_icon);
-        break;
-      case arrayIconsD[2] || arrayIconsN[2]:
-        setWicon2(drizzle_icon);
-        break;
-      case arrayIconsD[3] || arrayIconsN[3]:
-        setWicon2(drizzle_icon);
-        break;
-      case arrayIconsD[4] || arrayIconsN[4]:
-        setWicon2(rain_icon);
-        break;
-      case arrayIconsD[5] || arrayIconsN[5]:
-        setWicon2(snow_icon);
-        break;
-      default:
-        setWicon2(clear_icon);
-        break;
-    }
-
-    switch ( data.list[16].weather[0].icon ) {
-      case arrayIconsD[0] || arrayIconsN[0]:
-        setWicon3(clear_icon);
-        break;
-      case arrayIconsD[1] || arrayIconsN[1]:
-        setWicon3(cloud_icon);
-        break;
-      case arrayIconsD[2] || arrayIconsN[2]:
-        setWicon3(drizzle_icon);
-        break;
-      case arrayIconsD[3] || arrayIconsN[3]:
-        setWicon3(drizzle_icon);
-        break;
-      case arrayIconsD[4] || arrayIconsN[4]:
-        setWicon3(rain_icon);
-        break;
-      case arrayIconsD[5] || arrayIconsN[5]:
-        setWicon3(snow_icon);
-        break;
-      default:
-        setWicon3(clear_icon);
-        break;
-    }
-
-    switch ( data.list[24].weather[0].icon ) {
-      case arrayIconsD[0] || arrayIconsN[0]:
-        setWicon4(clear_icon);
-        break;
-      case arrayIconsD[1] || arrayIconsN[1]:
-        setWicon4(cloud_icon);
-        break;
-      case arrayIconsD[2] || arrayIconsN[2]:
-        setWicon4(drizzle_icon);
-        break;
-      case arrayIconsD[3] || arrayIconsN[3]:
-        setWicon4(drizzle_icon);
-        break;
-      case arrayIconsD[4] || arrayIconsN[4]:
-        setWicon4(rain_icon);
-        break;
-      case arrayIconsD[5] || arrayIconsN[5]:
-        setWicon4(snow_icon);
-        break;
-      default:
-        setWicon4(clear_icon);
-        break;
+    for (let i = 0; i <= 24; i += 8) {
+      switch ( i ) {
+        case 0:
+          switch ( data.list[i].weather[0].icon ) {
+            case arrayIconsD[0] || arrayIconsN[0]:
+              setWicon(clear_icon);
+              break;
+            case arrayIconsD[1] || arrayIconsN[1]:
+              setWicon(cloud_icon);
+              break;
+            case arrayIconsD[2] || arrayIconsN[2]:
+              setWicon(drizzle_icon);
+              break;
+            case arrayIconsD[3] || arrayIconsN[3]:
+              setWicon(drizzle_icon);
+              break;
+            case arrayIconsD[4] || arrayIconsN[4]:
+              setWicon(rain_icon);
+              break;
+            case arrayIconsD[5] || arrayIconsN[5]:
+              setWicon(snow_icon);
+              break;
+            default:
+              setWicon(clear_icon);
+              break;
+          }
+          break;
+        case 8:
+          switch ( data.list[i].weather[0].icon ) {
+            case arrayIconsD[0] || arrayIconsN[0]:
+              setWicon2(clear_icon);
+              break;
+            case arrayIconsD[1] || arrayIconsN[1]:
+              setWicon2(cloud_icon);
+              break;
+            case arrayIconsD[2] || arrayIconsN[2]:
+              setWicon2(drizzle_icon);
+              break;
+            case arrayIconsD[3] || arrayIconsN[3]:
+              setWicon2(drizzle_icon);
+              break;
+            case arrayIconsD[4] || arrayIconsN[4]:
+              setWicon2(rain_icon);
+              break;
+            case arrayIconsD[5] || arrayIconsN[5]:
+              setWicon2(snow_icon);
+              break;
+            default:
+              setWicon2(clear_icon);
+              break;
+          }
+          break;
+        case 16:
+          switch ( data.list[i].weather[0].icon ) {
+            case arrayIconsD[0] || arrayIconsN[0]:
+              setWicon3(clear_icon);
+              break;
+            case arrayIconsD[1] || arrayIconsN[1]:
+              setWicon3(cloud_icon);
+              break;
+            case arrayIconsD[2] || arrayIconsN[2]:
+              setWicon3(drizzle_icon);
+              break;
+            case arrayIconsD[3] || arrayIconsN[3]:
+              setWicon3(drizzle_icon);
+              break;
+            case arrayIconsD[4] || arrayIconsN[4]:
+              setWicon3(rain_icon);
+              break;
+            case arrayIconsD[5] || arrayIconsN[5]:
+              setWicon3(snow_icon);
+              break;
+            default:
+              setWicon3(clear_icon);
+              break;
+          }
+          break;
+        case 24:
+          switch ( data.list[i].weather[0].icon ) {
+            case arrayIconsD[0] || arrayIconsN[0]:
+              setWicon4(clear_icon);
+              break;
+            case arrayIconsD[1] || arrayIconsN[1]:
+              setWicon4(cloud_icon);
+              break;
+            case arrayIconsD[2] || arrayIconsN[2]:
+              setWicon4(drizzle_icon);
+              break;
+            case arrayIconsD[3] || arrayIconsN[3]:
+              setWicon4(drizzle_icon);
+              break;
+            case arrayIconsD[4] || arrayIconsN[4]:
+              setWicon4(rain_icon);
+              break;
+            case arrayIconsD[5] || arrayIconsN[5]:
+              setWicon4(snow_icon);
+              break;
+            default:
+              setWicon4(clear_icon);
+              break;
+          }
+          break;
+        default:
+          setWicon(clear_icon);
+          break;
+      }
     }
   }
 
@@ -171,10 +187,10 @@ function WeatherApp() {
           <img src={search_icon} alt="icon-search" />
         </div>
       </div>
-      <h1 className='weather-location'>London</h1>
+      <h1 className='weather-location'>Belo Horizonte</h1>
       <div className='main-app'>
         <img src={wicon} alt="icon-weather" />
-        <h1 className="weather-temp">10ºC</h1>
+        <h1 className="weather-temp">20ºC</h1>
       </div>
       <div className='extra-info'>
         <div className='info'>
@@ -185,12 +201,12 @@ function WeatherApp() {
         <div className='info'>
           <img src={wind_icon} alt="" />
           <p>Wind</p>
-          <p className='wind-speed'>10%</p>
+          <p className='wind-speed'>2 Km/h</p>
         </div>
         <div className='info'>
           <img src={feeling_icon} alt="" />
           <p>Real Feel</p>
-          <p className='feeling'>10%</p>
+          <p className='feeling'>22ºC</p>
         </div>
       </div>
       <div className='days-change'>
@@ -199,15 +215,15 @@ function WeatherApp() {
           <img src={wicon} alt="" />
         </div>
         <div className='day'>
-          <p>{day1}</p>
+          <p>{daysForward('day1')}</p>
           <img src={wicon2} alt="" />
         </div>
         <div className='day'>
-          <p>{day2}</p>
+          <p>{daysForward('day2')}</p>
           <img src={wicon3} alt="" />
         </div>
         <div className='day'>
-          <p>{day3}</p>
+          <p>{daysForward('day3')}</p>
           <img src={wicon4} alt="" />
         </div>
       </div>
