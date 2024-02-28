@@ -40,6 +40,8 @@ function WeatherApp() {
   const [wicon3, setWicon3] = useState(cloud_icon);
   const [wicon4, setWicon4] = useState(cloud_icon);
 
+  
+
   const search = async () => {
     const element = document.getElementsByClassName("cityInput");
     if ( element[0].value === '' ){
@@ -49,6 +51,8 @@ function WeatherApp() {
     
     let response = await fetch(url);
     let data = await response.json();
+    const arrayIconsD = ["01d", "02d", "03d",  "04d", "10d",  "13d"];
+    const arrayIconsN = ["01n", "02n", "03n", "04n", "10n", "13n",];
     
     const humidity = document.getElementsByClassName('humidity-percent');
     const feeling = document.getElementsByClassName('feeling');
@@ -62,68 +66,100 @@ function WeatherApp() {
     temperature[0].innerHTML = Math.floor(data.list[0].main.temp) + '°C';
     location[0].innerHTML = data.city.name;
 
-    if ( data.list[0].weather[0].icon ==="01d" || data.list[0].weather[0].icon === "01n"){
-      setWicon(clear_icon);
-    } else if ( data.list[0].weather[0].icon === "02d" || data.list[0].weather[0].icon === "02n"){
-      setWicon(cloud_icon);
-    } else if ( data.list[0].weather[0].icon === "03d" || data.list[0].weather[0].icon === "03n"){
-      setWicon(drizzle_icon);
-    } else if ( data.list[0].weather[0].icon === "04d" || data.list[0].weather[0].icon === "04n"){
-      setWicon(drizzle_icon);
-    } else if ( data.list[0].weather[0].icon === "13d" || data.list[0].weather[0].icon === "13n"){
-      setWicon(snow_icon);
-    } else if ( data.list[0].weather[0].icon === "10d" || data.list[0].weather[0].icon === "10n"){
-      setWicon(rain_icon);
-    } else {
-      setWicon(clear_icon);
+    switch ( data.list[0].weather[0].icon ) {
+      case arrayIconsD[0] || arrayIconsN[0]:
+        setWicon(clear_icon);
+        break;
+      case arrayIconsD[1] || arrayIconsN[1]:
+        setWicon(cloud_icon);
+        break;
+      case arrayIconsD[2] || arrayIconsN[2]:
+        setWicon(drizzle_icon);
+        break;
+      case arrayIconsD[3] || arrayIconsN[3]:
+        setWicon(drizzle_icon);
+        break;
+      case arrayIconsD[4] || arrayIconsN[4]:
+        setWicon(rain_icon);
+        break;
+      case arrayIconsD[5] || arrayIconsN[5]:
+        setWicon(snow_icon);
+        break;
+      default:
+        setWicon(clear_icon);
+        break;
     }
 
-    if ( data.list[8].weather[0].icon ==="01d" || data.list[8].weather[0].icon === "01n"){
-      setWicon2(clear_icon);
-    } else if ( data.list[8].weather[0].icon === "02d" || data.list[8].weather[0].icon === "02n"){
-      setWicon2(cloud_icon);
-    } else if ( data.list[8].weather[0].icon === "03d" || data.list[8].weather[0].icon === "03n"){
-      setWicon2(drizzle_icon);
-    } else if ( data.list[8].weather[0].icon === "04d" || data.list[8].weather[0].icon === "04n"){
-      setWicon2(drizzle_icon);
-    } else if ( data.list[8].weather[0].icon === "13d" || data.list[8].weather[0].icon === "13n"){
-      setWicon2(snow_icon);
-    } else if ( data.list[8].weather[0].icon === "10d" || data.list[8].weather[0].icon === "10n"){
-      setWicon2(rain_icon);
-    } else {
-      setWicon2(clear_icon);
-    }
-    
-    if ( data.list[16].weather[0].icon ==="01d" || data.list[16].weather[0].icon === "01n"){
-      setWicon3(clear_icon);
-    } else if ( data.list[16].weather[0].icon === "02d" || data.list[16].weather[0].icon === "02n"){
-      setWicon3(cloud_icon);
-    } else if ( data.list[16].weather[0].icon === "03d" || data.list[16].weather[0].icon === "03n"){
-      setWicon3(drizzle_icon);
-    } else if ( data.list[16].weather[0].icon === "04d" || data.list[16].weather[0].icon === "04n"){
-      setWicon3(drizzle_icon);
-    } else if ( data.list[16].weather[0].icon === "13d" || data.list[16].weather[0].icon === "13n"){
-      setWicon3(snow_icon);
-    } else if ( data.list[16].weather[0].icon === "10d" || data.list[16].weather[0].icon === "10n"){
-      setWicon3(rain_icon);
-    } else {
-      setWicon3(clear_icon);
+    switch ( data.list[8].weather[0].icon ) {
+      case arrayIconsD[0] || arrayIconsN[0]:
+        setWicon2(clear_icon);
+        break;
+      case arrayIconsD[1] || arrayIconsN[1]:
+        setWicon2(cloud_icon);
+        break;
+      case arrayIconsD[2] || arrayIconsN[2]:
+        setWicon2(drizzle_icon);
+        break;
+      case arrayIconsD[3] || arrayIconsN[3]:
+        setWicon2(drizzle_icon);
+        break;
+      case arrayIconsD[4] || arrayIconsN[4]:
+        setWicon2(rain_icon);
+        break;
+      case arrayIconsD[5] || arrayIconsN[5]:
+        setWicon2(snow_icon);
+        break;
+      default:
+        setWicon2(clear_icon);
+        break;
     }
 
-    if ( data.list[24].weather[0].icon ==="01d" || data.list[24].weather[0].icon === "01n"){
-      setWicon4(clear_icon);
-    } else if ( data.list[24].weather[0].icon === "02d" || data.list[24].weather[0].icon === "02n"){
-      setWicon4(cloud_icon);
-    } else if ( data.list[24].weather[0].icon === "03d" || data.list[24].weather[0].icon === "03n"){
-      setWicon4(drizzle_icon);
-    } else if ( data.list[24].weather[0].icon === "04d" || data.list[24].weather[0].icon === "04n"){
-      setWicon4(drizzle_icon);
-    } else if ( data.list[24].weather[0].icon === "13d" || data.list[24].weather[0].icon === "13n"){
-      setWicon4(snow_icon);
-    } else if ( data.list[24].weather[0].icon === "10d" || data.list[24].weather[0].icon === "10n"){
-      setWicon4(rain_icon);
-    } else {
-      setWicon4(clear_icon);
+    switch ( data.list[16].weather[0].icon ) {
+      case arrayIconsD[0] || arrayIconsN[0]:
+        setWicon3(clear_icon);
+        break;
+      case arrayIconsD[1] || arrayIconsN[1]:
+        setWicon3(cloud_icon);
+        break;
+      case arrayIconsD[2] || arrayIconsN[2]:
+        setWicon3(drizzle_icon);
+        break;
+      case arrayIconsD[3] || arrayIconsN[3]:
+        setWicon3(drizzle_icon);
+        break;
+      case arrayIconsD[4] || arrayIconsN[4]:
+        setWicon3(rain_icon);
+        break;
+      case arrayIconsD[5] || arrayIconsN[5]:
+        setWicon3(snow_icon);
+        break;
+      default:
+        setWicon3(clear_icon);
+        break;
+    }
+
+    switch ( data.list[24].weather[0].icon ) {
+      case arrayIconsD[0] || arrayIconsN[0]:
+        setWicon4(clear_icon);
+        break;
+      case arrayIconsD[1] || arrayIconsN[1]:
+        setWicon4(cloud_icon);
+        break;
+      case arrayIconsD[2] || arrayIconsN[2]:
+        setWicon4(drizzle_icon);
+        break;
+      case arrayIconsD[3] || arrayIconsN[3]:
+        setWicon4(drizzle_icon);
+        break;
+      case arrayIconsD[4] || arrayIconsN[4]:
+        setWicon4(rain_icon);
+        break;
+      case arrayIconsD[5] || arrayIconsN[5]:
+        setWicon4(snow_icon);
+        break;
+      default:
+        setWicon4(clear_icon);
+        break;
     }
   }
 
