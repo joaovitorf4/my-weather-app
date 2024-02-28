@@ -29,7 +29,6 @@ function daysForward(day){
 }
 
 function WeatherApp() {
-
   const api_key = '8272a952bb70515534a7ccc74caf1046';
   const [wicon, setWicon] = useState(cloud_icon);
   const [wicon2, setWicon2] = useState(cloud_icon);
