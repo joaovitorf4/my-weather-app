@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/my-weather-app/static/css/main.0223aa24.css",
+    "main.js": "/my-weather-app/static/js/main.5f6789fb.js",
+    "static/js/453.534073bd.chunk.js": "/my-weather-app/static/js/453.534073bd.chunk.js",
+    "static/media/Euclid Circular A Regular.ttf": "/my-weather-app/static/media/Euclid Circular A Regular.d54600880dc63db716f2.ttf",
+    "static/media/Euclid Circular A Bold.ttf": "/my-weather-app/static/media/Euclid Circular A Bold.b4788f2f8f64a74fe6d6.ttf",
+    "static/media/cloud.png": "/my-weather-app/static/media/cloud.20f353f873a9b27949a9.png",
+    "index.html": "/my-weather-app/index.html",
+    "static/media/person.svg": "/my-weather-app/static/media/person.66157b8937670f6f3ced1ec61dc55f27.svg",
+    "main.0223aa24.css.map": "/my-weather-app/static/css/main.0223aa24.css.map",
+    "main.5f6789fb.js.map": "/my-weather-app/static/js/main.5f6789fb.js.map",
+    "453.534073bd.chunk.js.map": "/my-weather-app/static/js/453.534073bd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0223aa24.css",
+    "static/js/main.5f6789fb.js"
+  ]
+}
