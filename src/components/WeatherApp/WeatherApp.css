@@ -8,12 +8,12 @@
     display: flex;
     flex-direction: row;
     gap: 10px;
-    animation: fadeIn 1.5s;
+    /* animation: fadeIn 1.5s; */
 }
 
 .weather-location {
     text-align: center;
-    animation: fadeIn 1.5s;
+    /* animation: fadeIn 1.5s; */
 }
 
 .main-app {
@@ -21,7 +21,7 @@
     border-radius: 30px;
     display: flex;
     flex-direction: column;
-    animation: fadeIn 1.5s;
+    /* animation: fadeIn 1.5s; */
 }
 
 .extra-info {
@@ -29,14 +29,14 @@
     border-radius: 30px;
     display: flex;
     flex-direction: row;
-    animation: fadeIn 1.5s;
+    /* animation: fadeIn 1.5s; */
 }
 
 .days-change {
     display: flex;
     flex-direction: row;
     gap: 1em;
-    animation: fadeIn 1.5s;
+    /* animation: fadeIn 1.5s; */
 }
 
 .day {

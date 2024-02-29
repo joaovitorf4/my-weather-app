@@ -47,11 +47,9 @@ function WeatherApp() {
   
   const search = async () => {
     const element = document.getElementsByClassName("cityInput");
-
     if ( element[0].value === '' ){
       return 0;
     }
-    
     let url = `https://api.openweathermap.org/data/2.5/forecast?q=${element[0].value}&units=Metric&appid=${api_key}`;
     
     let response = await fetch(url);
@@ -139,6 +137,7 @@ function WeatherApp() {
   }
 
   return (
+    
     <div className='mobile-dimen'>
       <div className='search-field'>
         <input type="text" placeholder='Search a city' className='cityInput'/>
@@ -146,7 +145,7 @@ function WeatherApp() {
           <img src={search_icon} alt="icon-search" />
         </div>
       </div>
-      <h1 className='weather-location'>Belo Horizonte</h1>
+      <h1 className='weather-location' >Belo Horizonte</h1>
       <div className='main-app'>
         <img src={wicon} alt="icon-weather" />
         <h1 className="weather-temp">20ºC</h1>
