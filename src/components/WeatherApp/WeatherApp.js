@@ -145,7 +145,7 @@ function WeatherApp() {
           <img src={search_icon} alt="icon-search" />
         </div>
       </div>
-      <h1 className='weather-location' >Belo Horizonte</h1>
+      <h1 className='weather-location'>Paris</h1>
       <div className='main-app'>
         <img src={wicon} alt="icon-weather" />
         <h1 className="weather-temp">20ºC</h1>
