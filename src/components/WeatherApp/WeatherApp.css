@@ -123,7 +123,7 @@ h1 {
     }
 
     input {
-        width: 40vw;
+        width: 70vw;
         height: 50%;
     }
 
@@ -169,7 +169,7 @@ h1 {
     }
 
     h1 {
-        font-size: 3vw;
+        font-size: 4vh
     }
 
     .search-field {

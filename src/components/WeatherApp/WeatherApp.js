@@ -72,108 +72,66 @@ function WeatherApp() {
     for (let i = 0; i <= 24; i += 8) {
       switch ( i ) {
         case 0:
-          switch ( data.list[i].weather[0].icon ) {
-            case arrayIconsD[0] || arrayIconsN[0]:
-              setWicon(clear_icon);
-              break;
-            case arrayIconsD[1] || arrayIconsN[1]:
-              setWicon(cloud_icon);
-              break;
-            case arrayIconsD[2] || arrayIconsN[2]:
-              setWicon(drizzle_icon);
-              break;
-            case arrayIconsD[3] || arrayIconsN[3]:
-              setWicon(drizzle_icon);
-              break;
-            case arrayIconsD[4] || arrayIconsN[4]:
-              setWicon(rain_icon);
-              break;
-            case arrayIconsD[5] || arrayIconsN[5]:
-              setWicon(snow_icon);
-              break;
-            default:
-              setWicon(clear_icon);
-              break;
+          if ( data.list[i].weather[0].icon ===  arrayIconsD[0] || data.list[i].weather[0].icon === arrayIconsN[0]) {
+            setWicon(clear_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[1] || data.list[i].weather[0].icon === arrayIconsN[1]) {
+            setWicon(cloud_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[2] || data.list[i].weather[0].icon === arrayIconsN[2]) {
+            setWicon(drizzle_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[3] || data.list[i].weather[0].icon === arrayIconsN[3]) {
+            setWicon(drizzle_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[4] || data.list[i].weather[0].icon === arrayIconsN[4]) {
+            setWicon(rain_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[5] || data.list[i].weather[0].icon === arrayIconsN[5]) {    
+            setWicon(snow_icon);
           }
           break;
         case 8:
-          switch ( data.list[i].weather[0].icon ) {
-            case arrayIconsD[0] || arrayIconsN[0]:
-              setWicon2(clear_icon);
-              break;
-            case arrayIconsD[1] || arrayIconsN[1]:
-              setWicon2(cloud_icon);
-              break;
-            case arrayIconsD[2] || arrayIconsN[2]:
-              setWicon2(drizzle_icon);
-              break;
-            case arrayIconsD[3] || arrayIconsN[3]:
-              setWicon2(drizzle_icon);
-              break;
-            case arrayIconsD[4] || arrayIconsN[4]:
-              setWicon2(rain_icon);
-              break;
-            case arrayIconsD[5] || arrayIconsN[5]:
-              setWicon2(snow_icon);
-              break;
-            default:
-              setWicon2(clear_icon);
-              break;
+          if ( data.list[i].weather[0].icon ===  arrayIconsD[0] || data.list[i].weather[0].icon === arrayIconsN[0]) {
+            setWicon2(clear_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[1] || data.list[i].weather[0].icon === arrayIconsN[1]) {
+            setWicon2(cloud_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[2] || data.list[i].weather[0].icon === arrayIconsN[2]) {
+            setWicon2(drizzle_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[3] || data.list[i].weather[0].icon === arrayIconsN[3]) {
+            setWicon2(drizzle_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[4] || data.list[i].weather[0].icon === arrayIconsN[4]) {
+            setWicon2(rain_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[5] || data.list[i].weather[0].icon === arrayIconsN[5]) {    
+            setWicon2(snow_icon);
           }
           break;
         case 16:
-          switch ( data.list[i].weather[0].icon ) {
-            case arrayIconsD[0] || arrayIconsN[0]:
-              setWicon3(clear_icon);
-              break;
-            case arrayIconsD[1] || arrayIconsN[1]:
-              setWicon3(cloud_icon);
-              break;
-            case arrayIconsD[2] || arrayIconsN[2]:
-              setWicon3(drizzle_icon);
-              break;
-            case arrayIconsD[3] || arrayIconsN[3]:
-              setWicon3(drizzle_icon);
-              break;
-            case arrayIconsD[4] || arrayIconsN[4]:
-              setWicon3(rain_icon);
-              break;
-            case arrayIconsD[5] || arrayIconsN[5]:
-              setWicon3(snow_icon);
-              break;
-            default:
-              setWicon3(clear_icon);
-              break;
+          if ( data.list[i].weather[0].icon ===  arrayIconsD[0] || data.list[i].weather[0].icon === arrayIconsN[0]) {
+            setWicon3(clear_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[1] || data.list[i].weather[0].icon === arrayIconsN[1]) {
+            setWicon3(cloud_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[2] || data.list[i].weather[0].icon === arrayIconsN[2]) {
+            setWicon3(drizzle_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[3] || data.list[i].weather[0].icon === arrayIconsN[3]) {
+            setWicon3(drizzle_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[4] || data.list[i].weather[0].icon === arrayIconsN[4]) {
+            setWicon3(rain_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[5] || data.list[i].weather[0].icon === arrayIconsN[5]) {    
+            setWicon3(snow_icon);
           }
           break;
         case 24:
-          switch ( data.list[i].weather[0].icon ) {
-            case arrayIconsD[0] || arrayIconsN[0]:
-              setWicon4(clear_icon);
-              break;
-            case arrayIconsD[1] || arrayIconsN[1]:
-              setWicon4(cloud_icon);
-              break;
-            case arrayIconsD[2] || arrayIconsN[2]:
-              setWicon4(drizzle_icon);
-              break;
-            case arrayIconsD[3] || arrayIconsN[3]:
-              setWicon4(drizzle_icon);
-              break;
-            case arrayIconsD[4] || arrayIconsN[4]:
-              setWicon4(rain_icon);
-              break;
-            case arrayIconsD[5] || arrayIconsN[5]:
-              setWicon4(snow_icon);
-              break;
-            default:
-              setWicon4(clear_icon);
-              break;
+          if ( data.list[i].weather[0].icon ===  arrayIconsD[0] || data.list[i].weather[0].icon === arrayIconsN[0]) {
+            setWicon4(clear_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[1] || data.list[i].weather[0].icon === arrayIconsN[1]) {
+            setWicon4(cloud_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[2] || data.list[i].weather[0].icon === arrayIconsN[2]) {
+            setWicon4(drizzle_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[3] || data.list[i].weather[0].icon === arrayIconsN[3]) {
+            setWicon4(drizzle_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[4] || data.list[i].weather[0].icon === arrayIconsN[4]) {
+            setWicon4(rain_icon);
+          } else if ( data.list[i].weather[0].icon ===  arrayIconsD[5] || data.list[i].weather[0].icon === arrayIconsN[5]) {    
+            setWicon4(snow_icon);
           }
           break;
         default:
-          setWicon(clear_icon);
-          break;
       }
     }
   }
