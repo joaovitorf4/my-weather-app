@@ -47,9 +47,11 @@ function WeatherApp() {
   
   const search = async () => {
     const element = document.getElementsByClassName("cityInput");
+
     if ( element[0].value === '' ){
       return 0;
     }
+    
     let url = `https://api.openweathermap.org/data/2.5/forecast?q=${element[0].value}&units=Metric&appid=${api_key}`;
     
     let response = await fetch(url);

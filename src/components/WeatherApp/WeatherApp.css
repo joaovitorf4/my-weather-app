@@ -12,6 +12,7 @@
 }
 
 .weather-location {
+    text-align: center;
     animation: fadeIn 1.5s;
 }
 
@@ -128,7 +129,7 @@ h1 {
     }
 
     h1 {
-        font-size: 3em;
+        font-size: 2.5em;
     }
 
     .search-field {
